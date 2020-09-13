@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -49,6 +50,10 @@ import java.util.Map;
 
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
+    //new
+    private GoogleMap mGoogleMap;
+    Location myLocation;
+
     View view;
     GoogleMap map;
     MapView mapView;
@@ -109,7 +114,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         String mode = "mode=driving";
         String param = str_org + "&" + str_dest + "&" + sensor + "&" + mode;
         String output = "json";
-        String url ="https://maps.googleapis.com/maps/api/directions/" + output + "?" + param + "&key=" + "AIzaSyDrFyBOo53TJ5vO1zot95DuY_4Az0qkZRY";
+        String url ="https://maps.googleapis.com/maps/api/directions/json?" + output + "?" + param;
         return url;
     }
     private String requestDirection(String reqUrl) throws IOException {

@@ -77,7 +77,8 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:gravity="center_horizontal" />
-                <TextView
+                <Chronometer
+                    android:id="@+id/chronometer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0.0"/>
@@ -114,6 +115,7 @@
                     android:textStyle="bold"
                     android:gravity="center_horizontal" />
                 <TextView
+                    android:id="@+id/distance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0.0"/>

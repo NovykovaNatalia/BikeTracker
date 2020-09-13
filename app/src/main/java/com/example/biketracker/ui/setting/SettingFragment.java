@@ -28,7 +28,7 @@ public class SettingFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_setting, container, false);
 
         switchMode = root.findViewById(R.id.switchMode);
-        
+
         return root;
     }
     public void restartApp() {
