@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_history" />
     <fragment
         android:id="@+id/nav_profil"
-        android:name="com.example.biketracker.ui.profil.ProfilFragment"
+        android:name="com.example.biketracker.ui.profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
     <fragment

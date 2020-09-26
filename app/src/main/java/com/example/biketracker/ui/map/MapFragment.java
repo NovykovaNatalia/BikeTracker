@@ -45,7 +45,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     private GoogleMap mGoogleMap;
     Location myLocation;
 
-    View view;
+    View fragmentMap;
     GoogleMap map;
     MapView mapView;
     ArrayList<LatLng> listPoints;
@@ -54,10 +54,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_map, container, false);
+        fragmentMap = inflater.inflate(R.layout.fragment_map, container, false);
 
         listPoints = new ArrayList<>();
-        return view;
+        return fragmentMap;
 
     }
 

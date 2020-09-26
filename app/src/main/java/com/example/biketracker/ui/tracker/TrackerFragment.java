@@ -19,25 +19,22 @@ import com.example.biketracker.R;
 
 public class TrackerFragment extends Fragment {
     private static final long START_TIME_IN_MILLIS = 600000;
-    private TrackerViewModel trackerViewModel;
     private Chronometer chronometer;
     private long pauseOffSet;
 
-    ImageButton playButton;
-    ImageButton stopButton;
+    ImageButton buttonPlayPause;
+    ImageButton buttonStop;
     boolean isPressed;
     boolean isStart;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              final ViewGroup container, Bundle savedInstanceState) {
 
-        trackerViewModel =
-                ViewModelProviders.of(this).get(TrackerViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_tracker, container, false);
+        View fragmentTracker = inflater.inflate(R.layout.fragment_tracker, container, false);
 
-        playButton  = (ImageButton)root.findViewById(R.id.play);
-        stopButton  = (ImageButton)root.findViewById(R.id.stop);
-        chronometer = root.findViewById(R.id.chronometer);
+        buttonPlayPause = (ImageButton)fragmentTracker.findViewById(R.id.button_play_pause);
+        buttonStop = (ImageButton)fragmentTracker.findViewById(R.id.stop);
+        chronometer = fragmentTracker.findViewById(R.id.chronometer);
         chronometer.setFormat("Time: %s");
         chronometer.setBase(SystemClock.elapsedRealtime());
 
@@ -51,46 +48,38 @@ public class TrackerFragment extends Fragment {
             }
         });
 
-
-        Log.e("no"," ### dnovykov PlayButton " + playButton);
-
-        playButton.setOnClickListener(new View.OnClickListener() {
+        buttonPlayPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                Log.e("no"," ### dnovykov ONCLICK !! WORK");
                 if(!isPressed) {
-                    System.out.println(" ### dnovykov ONCLICK !! WORK 1");
                     isPressed = true;
-                    playButton.setBackgroundResource(R.drawable.baseline_pause);
+                    buttonPlayPause.setImageResource(R.drawable.baseline_pause);
                     startChronometer(chronometer);
-                    stopButton.setVisibility(View.VISIBLE);
+                    buttonStop.setVisibility(View.VISIBLE);
 
                 } else {
-                    Log.e("no"," ### dnovykov ONCLICK !! WORK");
                     isPressed = false;
-                    playButton.setBackgroundResource(R.drawable.play_arrow);
-                    //TODO: button
+                    buttonPlayPause.setImageResource(R.drawable.play_arrow);
                     pauseChronometer(chronometer);
                 }
             }
         });
-        stopButton.setOnClickListener(new View.OnClickListener() {
+        buttonStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(!isPressed) {
                     isPressed = true;
-                    showAlertDialog(stopButton);
-                    playButton.setBackgroundResource(R.drawable.play_arrow);
+                    showAlertDialog(buttonStop);
+                    buttonPlayPause.setImageResource(R.drawable.play_arrow);
                 }
             }
         });
-        return root;
+        return fragmentTracker;
 
 
 
     }
     public void startChronometer(View v) {
-        Log.e("no"," ### dnovykov ONCLICK !! Chronometer");
         if(!isStart) {
             chronometer.setBase(SystemClock.elapsedRealtime() - pauseOffSet);
             chronometer.start();
@@ -118,7 +107,7 @@ public class TrackerFragment extends Fragment {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(getContext(), "You finished your track", Toast.LENGTH_LONG).show();
                 resetChronometer(chronometer);
-                stopButton.setVisibility(View.GONE);
+                buttonStop.setVisibility(View.GONE);
             }
 
         });

@@ -17,24 +17,16 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.biketracker.R;
 public class SettingFragment extends Fragment {
+
     private Switch switchMode;
-    private SettingViewModel settingViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        settingViewModel =
-                ViewModelProviders.of((FragmentActivity) getContext()).get(SettingViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_setting, container, false);
+        View fragmentSetting = inflater.inflate(R.layout.fragment_setting, container, false);
+        //TODO: change application theme (dark/light)
+        switchMode = fragmentSetting.findViewById(R.id.switchMode);
 
-        switchMode = root.findViewById(R.id.switchMode);
-
-        return root;
+        return fragmentSetting;
     }
-    public void restartApp() {
-        Intent i = new Intent(getContext(),SettingFragment.class);
-        startActivity(i);
-        onStop();
-    }
-
 }
