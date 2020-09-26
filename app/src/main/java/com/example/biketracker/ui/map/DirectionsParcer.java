@@ -1,4 +1,4 @@
-package com.example.biketracker.ui.gallery;
+package com.example.biketracker.ui.map;
 
 import com.google.android.gms.maps.model.LatLng;
 

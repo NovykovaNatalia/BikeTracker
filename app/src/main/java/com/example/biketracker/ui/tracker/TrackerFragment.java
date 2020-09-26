@@ -1,10 +1,8 @@
-package com.example.biketracker.ui.home;
+package com.example.biketracker.ui.tracker;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,13 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.biketracker.R;
 
@@ -68,11 +63,13 @@ public class TrackerFragment extends Fragment {
                     isPressed = true;
                     playButton.setBackgroundResource(R.drawable.baseline_pause);
                     startChronometer(chronometer);
+                    stopButton.setVisibility(View.VISIBLE);
 
                 } else {
                     Log.e("no"," ### dnovykov ONCLICK !! WORK");
                     isPressed = false;
                     playButton.setBackgroundResource(R.drawable.play_arrow);
+                    //TODO: button
                     pauseChronometer(chronometer);
                 }
             }
@@ -82,13 +79,8 @@ public class TrackerFragment extends Fragment {
             public void onClick(View view) {
                 if(!isPressed) {
                     isPressed = true;
-                    stopButton.setBackgroundResource(R.drawable.ic_baseline_play_circle);
-                    //TODO: alert dialog Do you want to finish yor track?
                     showAlertDialog(stopButton);
-                    resetChronometer(chronometer);
-                } else {
-                    isPressed = false;
-                    stopButton.setBackgroundResource(R.drawable.ic_baseline_stop_24);
+                    playButton.setBackgroundResource(R.drawable.play_arrow);
                 }
             }
         });
@@ -125,13 +117,17 @@ public class TrackerFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(getContext(), "You finished your track", Toast.LENGTH_LONG).show();
+                resetChronometer(chronometer);
+                stopButton.setVisibility(View.GONE);
             }
+
         });
         alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(getContext(), "You prolong your travel", Toast.LENGTH_LONG).show();
             }
+
         });
         alert.create().show();
     }

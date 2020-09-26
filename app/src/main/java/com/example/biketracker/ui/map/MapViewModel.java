@@ -1,17 +1,17 @@
-package com.example.biketracker.ui.slideshow;
+package com.example.biketracker.ui.map;
 
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HistoryViewModel extends ViewModel {
+public class MapViewModel extends ViewModel {
     private MutableLiveData<String> mText;
 
-    public HistoryViewModel() {
+    public MapViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is history fragment");
+        mText.setValue("This is map fragment");
     }
+
     public LiveData<String> getText() {
         return mText;
     }

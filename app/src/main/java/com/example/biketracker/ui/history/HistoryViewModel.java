@@ -1,20 +1,17 @@
-package com.example.biketracker.ui.profil;
+package com.example.biketracker.ui.history;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ProfilViewModel extends ViewModel {
-
+public class HistoryViewModel extends ViewModel {
     private MutableLiveData<String> mText;
 
-    public ProfilViewModel() {
+    public HistoryViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is profil fragment");
+        mText.setValue("This is history fragment");
     }
-
     public LiveData<String> getText() {
         return mText;
     }
 }
-

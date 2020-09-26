@@ -1,15 +1,16 @@
-package com.example.biketracker.ui.gallery;
+package com.example.biketracker.ui.tracker;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class MapViewModel extends ViewModel {
+public class TrackerViewModel extends ViewModel {
+
     private MutableLiveData<String> mText;
 
-    public MapViewModel() {
+    public TrackerViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is map fragment");
+//        mText.setValue("This is tracker fragment");
     }
 
     public LiveData<String> getText() {

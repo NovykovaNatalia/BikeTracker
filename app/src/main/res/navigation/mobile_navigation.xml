@@ -7,26 +7,26 @@
 
     <fragment
         android:id="@+id/nav_tracker"
-        android:name="com.example.biketracker.ui.home.TrackerFragment"
+        android:name="com.example.biketracker.ui.tracker.TrackerFragment"
         android:label="@string/tracker"
         tools:layout="@layout/fragment_tracker" />
 
     <fragment
         android:id="@+id/nav_map"
-        android:name="com.example.biketracker.ui.gallery.MapFragment"
+        android:name="com.example.biketracker.ui.map.MapFragment"
         android:label="@string/map"
         tools:layout="@layout/fragment_map" />
 
     <fragment
         android:id="@+id/nav_history"
-        android:name="com.example.biketracker.ui.slideshow.HistoryFragment"
+        android:name="com.example.biketracker.ui.history.HistoryFragment"
         android:label="@string/history"
         tools:layout="@layout/fragment_history" />
     <fragment
         android:id="@+id/nav_profil"
         android:name="com.example.biketracker.ui.profil.ProfilFragment"
-        android:label="@string/profil"
-        tools:layout="@layout/fragment_profil" />
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/nav_settings"
         android:name="com.example.biketracker.ui.setting.SettingFragment"
