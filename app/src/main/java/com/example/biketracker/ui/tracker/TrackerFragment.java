@@ -17,14 +17,13 @@ import androidx.fragment.app.Fragment;
 import com.example.biketracker.R;
 
 public class TrackerFragment extends Fragment {
-    private static final long START_TIME_IN_MILLIS = 600000;
     private Chronometer chronometer;
     private long pauseOffSet;
 
     ImageButton buttonPlayPause;
     ImageButton buttonStop;
     boolean isPlayPausePressed;
-    boolean isStart;
+    boolean isChronoStart;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              final ViewGroup container, Bundle savedInstanceState) {
@@ -40,10 +39,7 @@ public class TrackerFragment extends Fragment {
         chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
             @Override
             public void onChronometerTick(Chronometer chronometer) {
-                if((SystemClock.elapsedRealtime() - chronometer.getBase()) > 10000) {
-                    chronometer.setBase(SystemClock.elapsedRealtime());
-                    Toast.makeText(getContext(), "Bing!", Toast.LENGTH_LONG).show();
-                }
+                //TODO: mb it will be convenient to use this tick for map get localisation?? for example every 3 secs
             }
         });
 
@@ -75,18 +71,18 @@ public class TrackerFragment extends Fragment {
 
     }
     public void startChronometer(View v) {
-        if(!isStart) {
+        if(!isChronoStart) {
             chronometer.setBase(SystemClock.elapsedRealtime() - pauseOffSet);
             chronometer.start();
-            isStart = true;
+            isChronoStart = true;
         }
 
     }
     public void pauseChronometer(View v) {
-        if(isStart) {
+        if(isChronoStart) {
             chronometer.stop();
             pauseOffSet = SystemClock.elapsedRealtime() - chronometer.getBase();
-            isStart = false;
+            isChronoStart = false;
         }
 
     }
