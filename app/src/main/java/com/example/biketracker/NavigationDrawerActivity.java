@@ -1,7 +1,9 @@
 package com.example.biketracker;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Toast;
@@ -66,7 +68,7 @@ public class NavigationDrawerActivity extends AppCompatActivity {
                        fab.hide();
                        break;
                     default:
-                        fab.show();
+                        fab.hide();
                         break;
 
                 }
@@ -79,6 +81,23 @@ public class NavigationDrawerActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.navigation_drawer, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_profil:
+                Toast.makeText(this, "nav_profil", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_settings:
+                Toast.makeText(this, "nav_settings", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_share:
+                Toast.makeText(this, "nav_share", Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
