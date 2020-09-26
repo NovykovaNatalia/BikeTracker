@@ -22,16 +22,16 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="#00000000"
-            android:src="@drawable/play_arrow"/>
+            android:src="@drawable/baseline_play"/>
         <ImageButton
-            android:id="@+id/stop"
+            android:id="@+id/button_stop"
             android:layout_gravity="center"
             android:visibility="gone"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="#00000000"
             android:layout_toRightOf="@+id/button_play_pause"
-            android:src="@drawable/ic_baseline_play_circle"/>
+            android:src="@drawable/baseline_stop"/>
 
     </LinearLayout>
     <GridLayout

@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+
 import com.example.biketracker.R;
 
 public class TrackerFragment extends Fragment {
@@ -24,7 +23,7 @@ public class TrackerFragment extends Fragment {
 
     ImageButton buttonPlayPause;
     ImageButton buttonStop;
-    boolean isPressed;
+    boolean isPlayPausePressed;
     boolean isStart;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -33,7 +32,7 @@ public class TrackerFragment extends Fragment {
         View fragmentTracker = inflater.inflate(R.layout.fragment_tracker, container, false);
 
         buttonPlayPause = (ImageButton)fragmentTracker.findViewById(R.id.button_play_pause);
-        buttonStop = (ImageButton)fragmentTracker.findViewById(R.id.stop);
+        buttonStop = (ImageButton)fragmentTracker.findViewById(R.id.button_stop);
         chronometer = fragmentTracker.findViewById(R.id.chronometer);
         chronometer.setFormat("Time: %s");
         chronometer.setBase(SystemClock.elapsedRealtime());
@@ -51,15 +50,15 @@ public class TrackerFragment extends Fragment {
         buttonPlayPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                if(!isPressed) {
-                    isPressed = true;
+                if(!isPlayPausePressed) {
+                    isPlayPausePressed = true;
                     buttonPlayPause.setImageResource(R.drawable.baseline_pause);
                     startChronometer(chronometer);
                     buttonStop.setVisibility(View.VISIBLE);
 
                 } else {
-                    isPressed = false;
-                    buttonPlayPause.setImageResource(R.drawable.play_arrow);
+                    isPlayPausePressed = false;
+                    buttonPlayPause.setImageResource(R.drawable.baseline_play);
                     pauseChronometer(chronometer);
                 }
             }
@@ -67,11 +66,7 @@ public class TrackerFragment extends Fragment {
         buttonStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!isPressed) {
-                    isPressed = true;
-                    showAlertDialog(buttonStop);
-                    buttonPlayPause.setImageResource(R.drawable.play_arrow);
-                }
+                showAlertDialog(buttonStop);
             }
         });
         return fragmentTracker;
@@ -107,6 +102,8 @@ public class TrackerFragment extends Fragment {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(getContext(), "You finished your track", Toast.LENGTH_LONG).show();
                 resetChronometer(chronometer);
+                buttonPlayPause.setImageResource(R.drawable.baseline_play);
+                isPlayPausePressed = false;
                 buttonStop.setVisibility(View.GONE);
             }
 
