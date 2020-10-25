@@ -1,4 +1,4 @@
-package com.example.biketracker.ui.profil;
+package com.example.biketracker.ui.profile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,7 +19,7 @@ import java.util.List;
 
 import com.example.biketracker.R;
 
-public class ProfilFragment extends Fragment /**implements OnMapReadyCallback,
+public class ProfileFragment extends Fragment /**implements OnMapReadyCallback,
         GoogleApiClient.OnConnectionFailedListener, RoutingListener **/{
 
     //google map object
@@ -42,10 +42,10 @@ public class ProfilFragment extends Fragment /**implements OnMapReadyCallback,
     public View onCreateView(@NonNull LayoutInflater inflater,
 
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+        View fragmentProfil = inflater.inflate(R.layout.fragment_profile, container, false);
         //request location permission.
 //        requestPermision();
-        return root;
+        return fragmentProfil;
     }
 //
 //    private void requestPermision() {

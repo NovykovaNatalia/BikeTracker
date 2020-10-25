@@ -23,6 +23,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.biketracker.R;
 public class SettingFragment extends Fragment {
+
     TextView modeText;
     private Switch switchMode;
     SharedPreferences sharedPreferences = null;
@@ -64,4 +65,10 @@ public class SettingFragment extends Fragment {
         });
         return root;
     }
+    public void restartApp() {
+        Intent i = new Intent(getContext(),SettingFragment.class);
+        startActivity(i);
+        onStop();
+    }
+
 }

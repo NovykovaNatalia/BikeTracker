@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,95 +13,76 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+
 import com.example.biketracker.R;
 
 public class TrackerFragment extends Fragment {
-    private static final long START_TIME_IN_MILLIS = 600000;
-    private TrackerViewModel trackerViewModel;
     private Chronometer chronometer;
     private long pauseOffSet;
 
-    ImageButton playButton;
-    ImageButton stopButton;
-    boolean isPressed;
-    boolean isStart;
+    ImageButton buttonPlayPause;
+    ImageButton buttonStop;
+    boolean isPlayPausePressed;
+    boolean isChronoStart;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              final ViewGroup container, Bundle savedInstanceState) {
 
-        trackerViewModel =
-                ViewModelProviders.of(this).get(TrackerViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_tracker, container, false);
+        View fragmentTracker = inflater.inflate(R.layout.fragment_tracker, container, false);
 
-        playButton  = (ImageButton)root.findViewById(R.id.play);
-        stopButton  = (ImageButton)root.findViewById(R.id.stop);
-        chronometer = root.findViewById(R.id.chronometer);
+        buttonPlayPause = (ImageButton)fragmentTracker.findViewById(R.id.button_play_pause);
+        buttonStop = (ImageButton)fragmentTracker.findViewById(R.id.button_stop);
+        chronometer = fragmentTracker.findViewById(R.id.chronometer);
         chronometer.setFormat("Time: %s");
         chronometer.setBase(SystemClock.elapsedRealtime());
 
         chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
             @Override
             public void onChronometerTick(Chronometer chronometer) {
-                if((SystemClock.elapsedRealtime() - chronometer.getBase()) > 10000) {
-                    chronometer.setBase(SystemClock.elapsedRealtime());
-                    Toast.makeText(getContext(), "Bing!", Toast.LENGTH_LONG).show();
-                }
+                //TODO: mb it will be convenient to use this tick for map get localisation?? for example every 3 secs
             }
         });
 
-
-        Log.e("no"," ### dnovykov PlayButton " + playButton);
-
-        playButton.setOnClickListener(new View.OnClickListener() {
+        buttonPlayPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                Log.e("no"," ### dnovykov ONCLICK !! WORK");
-                if(!isPressed) {
-                    System.out.println(" ### dnovykov ONCLICK !! WORK 1");
-                    isPressed = true;
-                    playButton.setBackgroundResource(R.drawable.baseline_pause);
+                if(!isPlayPausePressed) {
+                    isPlayPausePressed = true;
+                    buttonPlayPause.setImageResource(R.drawable.baseline_pause);
                     startChronometer(chronometer);
-                    stopButton.setVisibility(View.VISIBLE);
+                    buttonStop.setVisibility(View.VISIBLE);
 
                 } else {
-                    Log.e("no"," ### dnovykov ONCLICK !! WORK");
-                    isPressed = false;
-                    playButton.setBackgroundResource(R.drawable.play_arrow);
-                    //TODO: button
+                    isPlayPausePressed = false;
+                    buttonPlayPause.setImageResource(R.drawable.baseline_play);
                     pauseChronometer(chronometer);
                 }
             }
         });
-        stopButton.setOnClickListener(new View.OnClickListener() {
+        buttonStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!isPressed) {
-                    isPressed = true;
-                    showAlertDialog(stopButton);
-                    playButton.setBackgroundResource(R.drawable.play_arrow);
-                }
+                showAlertDialog(buttonStop);
             }
         });
-        return root;
+        return fragmentTracker;
 
 
 
     }
     public void startChronometer(View v) {
-        Log.e("no"," ### dnovykov ONCLICK !! Chronometer");
-        if(!isStart) {
+        if(!isChronoStart) {
             chronometer.setBase(SystemClock.elapsedRealtime() - pauseOffSet);
             chronometer.start();
-            isStart = true;
+            isChronoStart = true;
         }
 
     }
     public void pauseChronometer(View v) {
-        if(isStart) {
+        if(isChronoStart) {
             chronometer.stop();
             pauseOffSet = SystemClock.elapsedRealtime() - chronometer.getBase();
-            isStart = false;
+            isChronoStart = false;
         }
 
     }
@@ -118,7 +98,9 @@ public class TrackerFragment extends Fragment {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(getContext(), "You finished your track", Toast.LENGTH_LONG).show();
                 resetChronometer(chronometer);
-                stopButton.setVisibility(View.GONE);
+                buttonPlayPause.setImageResource(R.drawable.baseline_play);
+                isPlayPausePressed = false;
+                buttonStop.setVisibility(View.GONE);
             }
 
         });
