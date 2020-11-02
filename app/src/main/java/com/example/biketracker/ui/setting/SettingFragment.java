@@ -36,39 +36,33 @@ public class SettingFragment extends Fragment {
         switchMode.setChecked(false);
 
         sharedPreferences = getActivity().getSharedPreferences("night", 0);
-        Boolean booleanValue = sharedPreferences.getBoolean("night_mode"+,true);
-        Log.e("LOG_TAG2", " booleanValue" + booleanValue);
-        if (booleanValue) {
+        Boolean isNightMode = sharedPreferences.getBoolean("night_mode",false);
+        Log.e("LOG_TAG2", " isNightMode " + isNightMode);
+        if (isNightMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             switchMode.setChecked(true);
         }
-
-        switchMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//                    switchMode.setChecked(true);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putBoolean("night_mode",true);
-                    editor.commit();
-                    modeText.setText("Dark");
-                } else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//                    switchMode.setChecked(false);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putBoolean("night_mode",false);
-                    editor.commit();
-                    modeText.setText("Light");
-                }
-            }
-        });
+//
+//        switchMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked){
+//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+////                    switchMode.setChecked(true);
+//                    SharedPreferences.Editor editor = sharedPreferences.edit();
+//                    editor.putBoolean("night_mode",true);
+//                    editor.commit();
+//                    modeText.setText("Dark");
+//                } else {
+//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+////                    switchMode.setChecked(false);
+//                    SharedPreferences.Editor editor = sharedPreferences.edit();
+//                    editor.putBoolean("night_mode",false);
+//                    editor.commit();
+//                    modeText.setText("Light");
+//                }
+//            }
+//        });
         return root;
     }
-    public void restartApp() {
-        Intent i = new Intent(getContext(),SettingFragment.class);
-        startActivity(i);
-        onStop();
-    }
-
 }

@@ -41,14 +41,10 @@ import java.util.List;
 
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
-    //new
-    private GoogleMap mGoogleMap;
-    Location myLocation;
-
-    View fragmentMap;
-    GoogleMap map;
-    MapView mapView;
-    ArrayList<LatLng> listPoints;
+    private View fragmentMap;
+    private GoogleMap map;
+    private MapView mapView;
+    private ArrayList<LatLng> listPoints;
 
     private static final int LOCATION_REQUEST = 500;
 
@@ -58,7 +54,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         listPoints = new ArrayList<>();
         return fragmentMap;
-
     }
 
     @Override
