@@ -20,18 +20,18 @@ public class TrackerFragment extends Fragment {
     private Chronometer chronometer;
     private long pauseOffSet;
 
-    ImageButton buttonPlayPause;
-    ImageButton buttonStop;
-    boolean isPlayPausePressed;
-    boolean isChronoStart;
+    private ImageButton buttonPlayPause;
+    private ImageButton buttonStop;
+    private boolean isPlayPausePressed;
+    private boolean isChronoStart;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              final ViewGroup container, Bundle savedInstanceState) {
 
         View fragmentTracker = inflater.inflate(R.layout.fragment_tracker, container, false);
 
-        buttonPlayPause = (ImageButton)fragmentTracker.findViewById(R.id.button_play_pause);
-        buttonStop = (ImageButton)fragmentTracker.findViewById(R.id.button_stop);
+        buttonPlayPause = (ImageButton) fragmentTracker.findViewById(R.id.button_play_pause);
+        buttonStop = (ImageButton) fragmentTracker.findViewById(R.id.button_stop);
         chronometer = fragmentTracker.findViewById(R.id.chronometer);
         chronometer.setFormat("Time: %s");
         chronometer.setBase(SystemClock.elapsedRealtime());
@@ -46,7 +46,7 @@ public class TrackerFragment extends Fragment {
         buttonPlayPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                if(!isPlayPausePressed) {
+                if (!isPlayPausePressed) {
                     isPlayPausePressed = true;
                     buttonPlayPause.setImageResource(R.drawable.baseline_pause);
                     startChronometer(chronometer);
@@ -68,28 +68,31 @@ public class TrackerFragment extends Fragment {
         return fragmentTracker;
 
 
-
     }
+
     public void startChronometer(View v) {
-        if(!isChronoStart) {
+        if (!isChronoStart) {
             chronometer.setBase(SystemClock.elapsedRealtime() - pauseOffSet);
             chronometer.start();
             isChronoStart = true;
         }
 
     }
+
     public void pauseChronometer(View v) {
-        if(isChronoStart) {
+        if (isChronoStart) {
             chronometer.stop();
             pauseOffSet = SystemClock.elapsedRealtime() - chronometer.getBase();
             isChronoStart = false;
         }
 
     }
+
     public void resetChronometer(View v) {
         chronometer.setBase(SystemClock.elapsedRealtime());
         pauseOffSet = 0;
     }
+    
     public void showAlertDialog(View view) {
         AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
         alert.setMessage("Do you want to finish your track?");
