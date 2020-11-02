@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">BikeTracker</string>
     <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
@@ -16,7 +17,6 @@
     <string name="share">Share</string>
     <string name="fragment_map">Fragment Map</string>
     <string name="title_activity_maps">Map</string>
-    <string name="text_translation">Language</string>
     <string-array name="language_option">
         <item>English</item>
         <item>Indonesian</item>
