@@ -65,9 +65,8 @@ public class TrackerFragment extends Fragment {
                 showAlertDialog(buttonStop);
             }
         });
+
         return fragmentTracker;
-
-
     }
 
     public void startChronometer(View v) {
@@ -92,7 +91,7 @@ public class TrackerFragment extends Fragment {
         chronometer.setBase(SystemClock.elapsedRealtime());
         pauseOffSet = 0;
     }
-    
+
     public void showAlertDialog(View view) {
         AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
         alert.setMessage("Do you want to finish your track?");

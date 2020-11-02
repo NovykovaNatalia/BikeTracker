@@ -20,42 +20,42 @@ import com.example.biketracker.R;
 
 public class SettingFragment extends Fragment {
 
-    TextView modeText;
+    private TextView modeText;
     private Switch switchMode;
-    SharedPreferences sharedPreferences = null;
-
+    private SharedPreferences sharedPreferences = null;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_setting, container, false);
-        modeText = root.findViewById(R.id.textMode);
-        switchMode = root.findViewById(R.id.switchMode);
+        View fragmentSettings = inflater.inflate(R.layout.fragment_setting, container, false);
+        modeText = fragmentSettings.findViewById(R.id.textMode);
+        switchMode = fragmentSettings.findViewById(R.id.switchMode);
         switchMode.setChecked(false);
 
-        Spinner mLanguage = (Spinner) root.findViewById(R.id.spLanguage);
-        TextView mTextView = (TextView) root.findViewById(R.id.textView);
+        Spinner spLanguage = (Spinner) fragmentSettings.findViewById(R.id.spLanguage);
+        TextView textLanguage = (TextView) fragmentSettings.findViewById(R.id.textLanguage);
 
         sharedPreferences = getActivity().getSharedPreferences("night", 0);
-        Boolean booleanValue = sharedPreferences.getBoolean("night_mode",true);
-        Log.e("LOG_TAG2", " booleanValue" + booleanValue);
-        if (booleanValue) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        Boolean isNightMode = sharedPreferences.getBoolean("night_mode",true);
+        if(isNightMode) {
             switchMode.setChecked(true);
+            modeText.setText("Dark");
+        } else {
+            switchMode.setChecked(false);
+            modeText.setText("Light");
         }
+        //TODO: this if block should be placed on MainActivity, and set default the during start application
 
         switchMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
+                if (isChecked) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//                    switchMode.setChecked(true);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putBoolean("night_mode",true);
+                    editor.putBoolean("night_mode", true);
                     editor.commit();
                     modeText.setText("Dark");
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//                    switchMode.setChecked(false);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putBoolean("night_mode",false);
                     editor.commit();
@@ -63,12 +63,20 @@ public class SettingFragment extends Fragment {
                 }
             }
         });
-        return root;
+
+        if (isNightMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            switchMode.setChecked(true);
+        }
+
+        return fragmentSettings;
     }
-    public void restartApp() {
-        Intent i = new Intent(getContext(),SettingFragment.class);
-        startActivity(i);
-        onStop();
-    }
+
+//TODO: this method mb should be called for applying settings
+//    public void restartApp() {
+//        Intent i = new Intent(getContext(),SettingFragment.class);
+//        startActivity(i);
+//        onStop();
+//    }
 
 }
