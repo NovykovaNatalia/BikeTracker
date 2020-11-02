@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="none">
-    <item android:id="@+id/nav_profil"
+    <item android:id="@+id/nav_profile"
         android:orderInCategory="100"
         android:icon="@drawable/ic_baseline_accessibility_new_24"
         android:title="@string/profile" />
