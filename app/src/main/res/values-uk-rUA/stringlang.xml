@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Байк трекер</string>
+    <string name="title_activity_navigation_drawer">навігейшен дравер актівіті</string>
+    <string name="navigation_drawer_open">Відкрити навігейшен дравер</string>
+    <string name="navigation_drawer_close">Закрити навігейшен дравер</string>
+    <string name="nav_header_title">Байк трекер</string>и
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Навігейшен хедер</string>
+    <string name="action_settings">Налаштування</string>
+
+    <string name="tracker">Трекер</string>
+    <string name="map">Карта</string>
+    <string name="history">Історія</string>
+    <string name="profile">Профіль</string>
+    <string name="settings">Налаштування</string>
+    <string name="share">Поширити</string>
+    <string name="fragment_map">Фрагмент карти</string>
+    <string name="text_translation">Мови</string>
+    <string name="title_activity_maps">Карти</string>
+    <string-array name="language_option">
+        <item>English</item>
+        <item>Indonesian</item>
+        <item>Spanish</item>
+    </string-array>
+</resources>

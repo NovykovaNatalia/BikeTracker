@@ -1,19 +1,19 @@
 <resources>
-    <string name="app_name">BikeTracker</string>
-    <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Bike Tracker</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name" translatable="false">BikeTracker</string>
+    <string name="title_activity_navigation_drawer" translatable="false">NavigationDrawerActivity</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">Bike Tracker</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
+    <string name="action_settings" translatable="false">Settings</string>
 
-    <string name="tracker">Tracker</string>
-    <string name="map">Map</string>
-    <string name="history">History</string>
-    <string name="profile">Profile</string>
-    <string name="settings">Settings</string>
-    <string name="share">Share</string>
-    <string name="fragment_map">Fragment Map</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="tracker" translatable="false">Tracker</string>
+    <string name="map" translatable="false">Map</string>
+    <string name="history" translatable="false">History</string>
+    <string name="profile" translatable="false">Profile</string>
+    <string name="settings" translatable="false">Settings</string>
+    <string name="share" translatable="false">Share</string>
+    <string name="fragment_map" translatable="false">Fragment Map</string>
+    <string name="title_activity_maps" translatable="false">Map</string>
 </resources>

@@ -44,17 +44,21 @@
         android:orientation="vertical"
         android:padding="50dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <Spinner
+            android:id="@+id/spLanguage"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Language"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="25sp" />
+            android:layout_marginTop="20dp"
+            android:entries="@array/language_option"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="English" />
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/text_translation"
+            android:textColor="@color/colorAccent"
+            android:textSize="25sp" />
     </LinearLayout>
     </androidx.cardview.widget.CardView>
 
