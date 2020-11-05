@@ -18,9 +18,44 @@
     <string name="fragment_map">Фрагмент карти</string>
     <string name="text_translation">Мови</string>
     <string name="title_activity_maps">Карти</string>
+    <string name="play_pause_button">play / pause button</string>
+    <string name="todo">TODO</string>
+    <string name="_0_0">0.0</string>
+    <string name="climb">Висота</string>
+    <string name="time">Час</string>
+    <string name="average_speed">Середня швидкість</string>
+    <string name="calorie">Калорії</string>
+    <string name="distanse">Відстань</string>
+    <string name="speed">Швидкість</string>
+    <string name="climb_value">0</string>
+    <string name="calorie_value">0</string>
+    <string name="time_picture">картинка часу</string>
+    <string name="button_stop">кнопка стоп</string>
+    <string name="distance_picture">картинка відстані</string>
+    <string name="average_speed_picture">картинка середньої швидкості</string>
+    <string name="speed_picture">картинка швидкості </string>
+    <string name="calorie_picture">картинка калорій</string>
+    <string name="time_value">Time</string>
+    <string name="calories_value">0</string>
+    <string name="distance_value">Distanse</string>
+    <string name="distances_value">0.0</string>
+    <string name="speeds_value">0.0</string>
+    <string name="average_speeds_value">0.0</string>
+    <string name="climbs_value">0</string>
+    <string name="climb_picture">картинка висоти</string>
+    <string name="alert_message">"Ви дійсно хочете закінчити поїздку?"</string>
+    <string name="alert_message_no">"Ні"</string>
+    <string name="alert_message_yes">"Так"</string>
+    <string name="alert_message_prolong">"Ви продовжили подорож"</string>
+    <string name="alert_message_finished">"Ви закінчили свою подорож"</string>
+    <string name="mode">Тема</string>
+    <string name="light">Світла</string>
+    <string name="dark">Темна</string>
+    <string name="lightText">Світла</string>
+
     <string-array name="language_option">
-        <item>English</item>
-        <item>Indonesian</item>
-        <item>Spanish</item>
+        <item>Англійська</item>
+        <item>Індонезійська</item>
+        <item>Іспанська</item>
     </string-array>
 </resources>

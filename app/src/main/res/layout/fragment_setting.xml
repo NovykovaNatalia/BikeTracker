@@ -14,17 +14,18 @@
             android:layout_height="match_parent"
             android:padding="50dp"
             android:orientation="vertical">
+
             <TextView
-                android:text="Mode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:textColor="@color/colorPrimaryDark"/>
+                android:text="@string/mode"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="25sp" />
             <TextView
                 android:id="@+id/textMode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Light"/>
+                android:text="@string/light"/>
            <Switch
                android:id="@+id/switchMode"
                android:layout_width="wrap_content"
@@ -44,6 +45,14 @@
         android:orientation="vertical"
         android:padding="50dp">
 
+        <TextView
+            android:id="@+id/textLanguage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/text_translation"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="25sp" />
+
         <Spinner
             android:id="@+id/spLanguage"
             android:layout_width="match_parent"
@@ -51,14 +60,6 @@
             android:layout_marginTop="20dp"
             android:entries="@array/language_option"/>
 
-        <TextView
-            android:id="@+id/textLanguage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/text_translation"
-            android:textColor="@color/colorAccent"
-            android:textSize="25sp" />
     </LinearLayout>
     </androidx.cardview.widget.CardView>
 

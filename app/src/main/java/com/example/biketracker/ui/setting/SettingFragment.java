@@ -38,10 +38,10 @@ public class SettingFragment extends Fragment {
         Boolean isNightMode = sharedPreferences.getBoolean("night_mode",true);
         if(isNightMode) {
             switchMode.setChecked(true);
-            modeText.setText("Dark");
+            modeText.setText(R.string.dark);
         } else {
             switchMode.setChecked(false);
-            modeText.setText("Light");
+            modeText.setText(R.string.lightText);
         }
         //TODO: this if block should be placed on MainActivity, and set default the during start application
 

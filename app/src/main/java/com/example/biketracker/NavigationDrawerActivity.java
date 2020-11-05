@@ -56,7 +56,7 @@ public class NavigationDrawerActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.navigation_drawer, menu);
-        MenuItem itemShare = menu.findItem(R.id.nav_share);
+        MenuItem itemShare = menu.findItem(R.id.bar_nav_share);
         itemShare.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {

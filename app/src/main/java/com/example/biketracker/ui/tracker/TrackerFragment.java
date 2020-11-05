@@ -94,11 +94,11 @@ public class TrackerFragment extends Fragment {
 
     public void showAlertDialog(View view) {
         AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
-        alert.setMessage("Do you want to finish your track?");
-        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        alert.setMessage(R.string.alert_message);
+        alert.setPositiveButton(R.string.alert_message_yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getContext(), "You finished your track", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), R.string.alert_message_finished, Toast.LENGTH_LONG).show();
                 resetChronometer(chronometer);
                 buttonPlayPause.setImageResource(R.drawable.baseline_play);
                 isPlayPausePressed = false;
@@ -106,10 +106,10 @@ public class TrackerFragment extends Fragment {
             }
 
         });
-        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        alert.setNegativeButton(R.string.alert_message_no, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getContext(), "You prolong your travel", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), R.string.alert_message_prolong, Toast.LENGTH_LONG).show();
             }
 
         });
