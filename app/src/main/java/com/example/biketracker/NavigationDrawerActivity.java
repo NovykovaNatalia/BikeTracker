@@ -1,8 +1,8 @@
 package com.example.biketracker;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.Menu;
 import android.widget.Toast;
@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -20,6 +21,7 @@ import androidx.appcompat.widget.Toolbar;
 
 public class NavigationDrawerActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +31,12 @@ public class NavigationDrawerActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        final NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setItemIconTintList(null);   // set tint for drawer
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_tracker,
@@ -44,22 +45,18 @@ public class NavigationDrawerActivity extends AppCompatActivity {
                 R.id.nav_profile,
                 R.id.nav_settings,
                 R.id.nav_share)
-                .setOpenableLayout(drawer)
+                .setOpenableLayout(drawerLayout)
                 .build();
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.navigation_drawer, menu);
-        MenuItem itemShare = menu.findItem(R.id.bar_nav_share);
-        itemShare.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+        MenuItem shareItem = navigationView.getMenu().getItem(5);
+        shareItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
+                drawerLayout.closeDrawer(navigationView);
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
                 String shareBody = "Your body hear";
@@ -70,8 +67,6 @@ public class NavigationDrawerActivity extends AppCompatActivity {
                 return true;
             }
         });
-        return true;
-
     }
 
     @Override
@@ -97,4 +92,5 @@ public class NavigationDrawerActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 }
