@@ -57,19 +57,26 @@ public class ProfileFragment extends Fragment {
         return fragmentProfil;
     }
     public void CreateAlertDialogWithRadioButton() {
-       AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+       final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("AlertDialog");
         final String[] items = {"male", "female"};
         final int checkItem = 0;
         builder.setSingleChoiceItems(items, checkItem, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int item) {
-                textViewSex.setText(items[item]);
-                dialogInterface.dismiss();
+               switch (item) {
+                   case 0:
+                       break;
+
+                   case 1:
+
+                       break;
+               }
 
             }
         });
         alertDialogWithRadioButton = builder.create();
+        alertDialogWithRadioButton.setCanceledOnTouchOutside(false);
         alertDialogWithRadioButton.show();
     }
 
