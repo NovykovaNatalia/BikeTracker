@@ -1,25 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
     <ImageView
+        android:layout_marginTop="30dp"
+        android:id="@+id/profile_pic"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/bike"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bike Tracker"
-            android:textSize="50sp"
-            android:layout_margin="60dp"
-            android:layout_marginTop="70dp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"/>
-    </LinearLayout>
-</FrameLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="novykovanatalie@gmail.com"
+        android:textSize="18sp"
+        android:id="@+id/textViewEm"
+        android:textStyle="bold" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="318dp"
+        android:layout_height="78dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="30dp" />
+</LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="facebook_app_id" translatable="false">771508226733264</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb771508226733264</string>
+    <string name="storage_link" translatable="false">https://biketracker-287015.firebaseio.com/</string>
+    <string name="google_web_client_id" translatable="false">217801824113-kt3aervmttj1hddjfkfr4a4crenu3ri1.apps.googleusercontent.com</string>
+    <string name="web_secret_client" translatable="false">FTGD5uZ3rIqGpJ2H8YWFFBpG</string>
+</resources>

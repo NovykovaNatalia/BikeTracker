@@ -10,33 +10,79 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="50dp"
+        android:paddingLeft="20dp"
+        android:id="@+id/linerName">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/name"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:id="@+id/textViewName"
+            android:text="0"/>
+    </LinearLayout>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:id="@+id/linerAge">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="@string/age"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:id="@+id/textViewAge"
+            android:text="0"/>
+    </LinearLayout>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
         android:id="@+id/linerSex">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sex"
-            android:textSize="25sp"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:text="@string/sex"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="25sp"
             android:id="@+id/textViewSex"
-            android:text="Male"/>
+            android:text="@string/male"/>
     </LinearLayout>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="50dp"
+        android:paddingLeft="20dp"
         android:id="@+id/linerWeight">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:textColor="@color/colorPrimaryDark"
-            android:text="Weight"/>
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/weight"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,25 +90,58 @@
             android:id="@+id/textViewWeight"
             android:text="0,0"/>
     </LinearLayout>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="50dp"
+        android:paddingLeft="20dp"
         android:id="@+id/linerHeight">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:textColor="@color/colorPrimaryDark"
-            android:text="Height"/>
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/height"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="25sp"
             android:id="@+id/textViewHeight"
             android:text="0"/>
+
     </LinearLayout>
-    
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:id="@+id/linerBike">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bike"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:id="@+id/textViewBike"
+            android:text="@string/city_bicycle"/>
+    </LinearLayout>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp" />
 
 </LinearLayout>

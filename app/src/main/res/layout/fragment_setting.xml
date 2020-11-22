@@ -5,7 +5,6 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.cardview.widget.CardView
-        android:background="?attr/cardBackgroundColor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -19,7 +18,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/mode"
-                android:textColor="@color/colorPrimaryDark"
                 android:textSize="25sp" />
             <TextView
                 android:id="@+id/textMode"
@@ -29,14 +27,13 @@
            <Switch
                android:id="@+id/switchMode"
                android:layout_width="wrap_content"
-               android:layout_height="wrap_content"/>
+               android:layout_height="wrap_content" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/cardBackgroundColor">
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/language"
@@ -50,7 +47,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/text_translation"
-            android:textColor="@color/colorPrimaryDark"
             android:textSize="25sp" />
 
         <Spinner

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "217801824113",
+    "firebase_url": "https://biketracker-287015.firebaseio.com",
+    "project_id": "biketracker-287015",
+    "storage_bucket": "biketracker-287015.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:217801824113:android:e1fd425cba713b028c88d0",
+        "android_client_info": {
+          "package_name": "com.example.biketracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "217801824113-3u5v64k5sgq4o3u2jf492m7ct6m84sfi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.biketracker",
+            "certificate_hash": "93fb372407f5e0740a5856f1ab1b1231dd4eb575"
+          }
+        },
+        {
+          "client_id": "217801824113-kt3aervmttj1hddjfkfr4a4crenu3ri1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwDSvkTXzmsDtdTTkN4-9_nuyx4ibY05Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "217801824113-kt3aervmttj1hddjfkfr4a4crenu3ri1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
