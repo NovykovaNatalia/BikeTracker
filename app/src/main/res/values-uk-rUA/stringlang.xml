@@ -52,7 +52,60 @@
     <string name="light">Світла</string>
     <string name="dark">Темна</string>
     <string name="lightText">Світла</string>
+    <string name="group1">Велосипеди</string>
+    <string name="name">Ім\'я</string>
+    <string name="age">Вік</string>
+    <string name="male">Чоловіча</string>
+    <string name="height">Ріст</string>
+    <string name="weight">Вага</string>
+    <string name="sex">Стать</string>
+    <string name="sexMale">Чоловіка</string>
+    <string name="female">Жіноча</string>
+    <string name="city_bicycle">Міський велосипед</string>
+    <string name="bike">Велосипед</string>
+    <string name="road_bike">Шосейний велосипед</string>
+    <string name="mountain_bike">Гірський велосипед</string>
+    <string name="group2">Група2</string>
+    <string name="group3">Група3</string>
+    <string name="group4">Група4</string>
+    <string name="group5">Група5</string>
+    <string name="group6">Група6</string>
 
+    <string-array name="group2">
+        <item>item1</item>
+        <item>item2</item>
+        <item>item3</item>
+    </string-array>
+
+    <string-array name="group3">
+        <item>item1</item>
+        <item>item2</item>
+        <item>item3</item>
+    </string-array>
+
+    <string-array name="group4">
+        <item>item1</item>
+        <item>item2</item>
+        <item>item3</item>
+    </string-array>
+
+    <string-array name="group5">
+        <item>item1</item>
+        <item>item2</item>
+        <item>item3</item>
+    </string-array>
+
+    <string-array name="group6">
+        <item>item1</item>
+        <item>item2</item>
+        <item>item3</item>
+    </string-array>
+
+    <string-array name="group1">
+    <item>Спортивний велосипед</item>
+    <item>Гірський велосипед</item>
+    <item>Шосейний велосипед</item>
+    </string-array>
     <string-array name="language_option">
         <item>Англійська</item>
         <item>Індонезійська</item>

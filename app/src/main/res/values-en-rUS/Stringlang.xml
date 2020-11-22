@@ -53,6 +53,60 @@
     <string name="light">Light</string>
     <string name="dark">Dark</string>
     <string name="lightText">Light</string>
+    <string name="group1">Bike</string>
+    <string name="name">Name</string>
+    <string name="age">Age</string>
+    <string name="male">Male</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="sex">Sex</string>
+    <string name="sexMale">male</string>
+    <string name="female">female</string>
+    <string name="city_bicycle">City bicycle</string>
+    <string name="bike">Bike</string>
+    <string name="road_bike">Bike</string>
+    <string name="mountain_bike">Mountain Bike</string>
+    <string name="group2">Group2</string>
+    <string name="group3">Group3</string>
+    <string name="group4">Group4</string>
+    <string name="group5">Group5</string>
+    <string name="group6">Group6</string>
+
+    <string-array name="group2">
+        <item>item1</item>
+        <item>item2</item>
+        <item>item3</item>
+    </string-array>
+
+    <string-array name="group3">
+        <item>item1</item>
+        <item>item2</item>
+        <item>item3</item>
+    </string-array>
+
+    <string-array name="group4">
+        <item>item1</item>
+        <item>item2</item>
+        <item>item3</item>
+    </string-array>
+
+    <string-array name="group5">
+        <item>item1</item>
+        <item>item2</item>
+        <item>item3</item>
+    </string-array>
+
+    <string-array name="group6">
+        <item>item1</item>
+        <item>item2</item>
+        <item>item3</item>
+    </string-array>
+
+    <string-array name="group1">
+    <item>Sport bike</item>
+    <item>Mountain bike</item>
+    <item>Road bike</item>
+    </string-array>
 
     <string-array name="language_option">
         <item>English</item>

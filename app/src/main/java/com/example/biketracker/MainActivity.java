@@ -18,12 +18,12 @@ public class MainActivity extends AppCompatActivity {
 
         ctx = this;
 
-        SharedPreferences sharedPreferences = getSharedPreferences("night", 0);
-        Boolean isNightMode = sharedPreferences.getBoolean("night_mode",true);
+//        SharedPreferences sharedPreferences = getSharedPreferences("night", 0);
+//        Boolean isNightMode = sharedPreferences.getBoolean("night_mode",true);
 
-        if (isNightMode) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        }
+//        if (isNightMode) {
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//        }
 
         startActivity(new Intent(ctx, NavigationDrawerActivity.class));
     }
