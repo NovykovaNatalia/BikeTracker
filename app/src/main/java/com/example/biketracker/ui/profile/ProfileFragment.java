@@ -194,7 +194,12 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
               EditText editText = customLayout.findViewById(R.id.ed_text);
-              textViewName.setText(editText.getText().toString());
+              if(editText.length()<= 0) {
+                  editText.setText("0");
+                  Toast.makeText(getActivity(), R.string.toastCorectValue, Toast.LENGTH_LONG).show();
+              } else {
+                  textViewName.setText(editText.getText().toString());
+              }
 
                 SharedPreferences preferences = PreferenceManager
                         .getDefaultSharedPreferences(getActivity());
