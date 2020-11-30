@@ -10,6 +10,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/ed_text_age"
         android:inputType="numberSigned"
-        android:hint="Enter your age here "/>
+        android:hint="@string/enter_your_age_here"/>
 
 </LinearLayout>

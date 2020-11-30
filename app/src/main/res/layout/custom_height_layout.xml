@@ -9,5 +9,5 @@
         android:layout_height="wrap_content"
         android:id="@+id/ed_text_height"
         android:inputType="numberDecimal"
-        android:hint="Enter your height here "/>
+        android:hint="@string/enter_your_height_here"/>
 </LinearLayout>

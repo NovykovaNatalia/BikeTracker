@@ -24,8 +24,6 @@ public class MainAdapter extends BaseExpandableListAdapter {
         this.listItem = listItem;
     }
 
-
-
     @Override
     public int getGroupCount() {
         return listGroup.size();

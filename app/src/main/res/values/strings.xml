@@ -68,6 +68,18 @@
     <string name="group4">Group4</string>
     <string name="group5">Group5</string>
     <string name="group6">Group6</string>
+    <string name="toastCorectValue">Please, type a correct value!</string>
+    <string name="alertTextWeight">Type your weight</string>
+    <string name="alertTextName">Type your name</string>
+    <string name="alertTextSex">Check your sex</string>
+    <string name="alertTextBike">Check your bike</string>
+    <string name="posBtnOk">OK</string>
+    <string name="alertTextAge">Type your age</string>
+    <string name="alertTextHeight">Type your height</string>
+    <string name="enter_your_age_here">Enter your age here</string>
+    <string name="enter_your_height_here">Enter your height here</string>
+    <string name="enter_your_weight_here">Enter your weight here</string>
+    <string name="enter_your_name_here">Enter your name here</string>
 
 
     <string-array name="group2">

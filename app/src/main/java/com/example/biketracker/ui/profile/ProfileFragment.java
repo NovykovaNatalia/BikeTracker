@@ -1,14 +1,12 @@
 package com.example.biketracker.ui.profile;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.text.InputType;
-import android.util.Log;
+import android.text.InputFilter;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,91 +15,78 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import android.location.Location;
-import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.ExpandableListView;
+import android.widget.Filter;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Polyline;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import com.example.biketracker.R;
 
-import org.w3c.dom.Text;
-
-import static android.text.InputType.TYPE_CLASS_NUMBER;
-
 public class ProfileFragment extends Fragment {
-    private LinearLayout linerSex;
-    private LinearLayout linerWeight;
-    private LinearLayout linerHeight;
-    private LinearLayout linerName;
-    private LinearLayout linerAge;
+    private LinearLayout linerLayoutSex;
+    private LinearLayout linerLayoutWeight;
+    private LinearLayout linerLayoutHeight;
+    private LinearLayout linerLayoutName;
+    private LinearLayout linerLayoutAge;
+    private LinearLayout linerLayoutBike;
+
     private TextView textViewSex;
     private TextView textViewWeight;
     private TextView textViewHeight;
+    private TextView textViewName;
+    private TextView textViewAge;
+    private TextView textViewBicycle;
+
+    private String selection;
+    private String selection1;
     AlertDialog alertDialogWithRadioButtonSex;
-    AlertDialog getAlertDialogWithRadioButtonBike;
+    AlertDialog alertDialogWithRadioButtonBike;
     AlertDialog alertDialogWithName;
     AlertDialog alertDialogWithAge;
     AlertDialog alertDialogWithWeight;
     AlertDialog alertDialogWithHeight;
-    private TextView textViewBicycle;
-    private LinearLayout lineBike;
-    private String selection;
-    private String selection1;
 
-    private TextView textName;
-    private TextView textAge;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
 
                              ViewGroup container, Bundle savedInstanceState) {
         View fragmentProfil = inflater.inflate(R.layout.fragment_profile, container, false);
-        linerHeight = fragmentProfil.findViewById(R.id.linerHeight);
-        linerWeight = fragmentProfil.findViewById(R.id.linerWeight);
-        linerSex = fragmentProfil.findViewById(R.id.linerSex);
-        linerName = fragmentProfil.findViewById(R.id.linerName);
+        linerLayoutHeight = fragmentProfil.findViewById(R.id.linerHeight);
+        linerLayoutWeight = fragmentProfil.findViewById(R.id.linerWeight);
+        linerLayoutSex = fragmentProfil.findViewById(R.id.linerSex);
+        linerLayoutName = fragmentProfil.findViewById(R.id.linerName);
         textViewHeight = fragmentProfil.findViewById(R.id.textViewHeight);
         textViewWeight = fragmentProfil.findViewById(R.id.textViewWeight);
         textViewSex = fragmentProfil.findViewById(R.id.textViewSex);
         textViewBicycle = fragmentProfil.findViewById(R.id.textViewBike);
-        lineBike = fragmentProfil.findViewById(R.id.linerBike);
-        linerAge = fragmentProfil.findViewById(R.id.linerAge);
+        linerLayoutBike = fragmentProfil.findViewById(R.id.linerBike);
+        linerLayoutAge = fragmentProfil.findViewById(R.id.linerAge);
 
-       textName = fragmentProfil.findViewById(R.id.textViewName);
-        textAge = fragmentProfil.findViewById(R.id.textViewAge);
+       textViewName = fragmentProfil.findViewById(R.id.textViewName);
+        textViewAge = fragmentProfil.findViewById(R.id.textViewAge);
 
 
-        linerName.setOnClickListener(new View.OnClickListener() {
+        linerLayoutName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                CreateAlertDialogWithName();
             }
         });
-        linerAge.setOnClickListener(new View.OnClickListener() {
+        linerLayoutAge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 CreateAlertDialogWithAge();
             }
         });
-        linerWeight.setOnClickListener(new View.OnClickListener() {
+        linerLayoutWeight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 CreateAlertDialogWithWeight();
             }
         });
 
-        linerSex.setOnClickListener(new View.OnClickListener() {
+        linerLayoutSex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 CreateAlertDialogWithRadioButtonSex();
@@ -109,13 +94,13 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        lineBike.setOnClickListener(new View.OnClickListener() {
+        linerLayoutBike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 CreateAlertDialogWithRadioButtonBike();
             }
         });
-        linerHeight.setOnClickListener(new View.OnClickListener() {
+        linerLayoutHeight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 CreateAlertDialogWithHeight();
@@ -129,14 +114,23 @@ public class ProfileFragment extends Fragment {
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         final View customHeightLayout = getLayoutInflater().inflate(R.layout.custom_height_layout, null);
         builder.setView(customHeightLayout);
-        builder.setTitle("CustomDialogWithHeight");
+        builder.setTitle(R.string.alertTextHeight);
 
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.posBtnOk, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                EditText editTextHeight = customHeightLayout.findViewById(R.id.ed_text_height);
-                Toast.makeText(getActivity(),editTextHeight.getText().toString(), Toast.LENGTH_LONG).show();
-                textViewHeight.setText(editTextHeight.getText().toString());
+                    EditText editTextHeight = customHeightLayout.findViewById(R.id.ed_text_height);
+                    float height = Float.parseFloat(editTextHeight.getText().toString());
+                    if(height < 50) {
+                        Toast.makeText(getActivity(), R.string.toastCorectValue, Toast.LENGTH_LONG).show();
+                        textViewHeight.setText("0");
+                    } else if (height > 300) {
+                        Toast.makeText(getActivity(),R.string.toastCorectValue, Toast.LENGTH_LONG).show();
+                        textViewHeight.setText("0");
+                    } else {
+                        textViewHeight.setText(editTextHeight.getText().toString());
+                    }
+
                 SharedPreferences preferences = PreferenceManager
                         .getDefaultSharedPreferences(getActivity());
                 SharedPreferences.Editor editor = preferences.edit();
@@ -152,14 +146,27 @@ public class ProfileFragment extends Fragment {
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         final View customWeightLayout = getLayoutInflater().inflate(R.layout.custom_weight_layout, null);
         builder.setView(customWeightLayout);
-        builder.setTitle("CustomDialogWithWeight");
+        builder.setTitle(R.string.alertTextWeight);
 
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.posBtnOk, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 EditText editTextWeight = customWeightLayout.findViewById(R.id.ed_text_weight);
-                Toast.makeText(getActivity(),editTextWeight.getText().toString(), Toast.LENGTH_LONG).show();
-                textViewWeight.setText(editTextWeight.getText().toString());
+                float weight = Float.parseFloat(editTextWeight.getText().toString());
+                if(weight < 0.0) {
+                    Toast.makeText(getActivity(),R.string.toastCorectValue, Toast.LENGTH_LONG).show();
+                    textViewWeight.setText("0.0");
+                } else if (weight > 700.0) {
+                    Toast.makeText(getActivity(),R.string.toastCorectValue, Toast.LENGTH_LONG).show();
+                    textViewWeight.setText("0.0");
+                }  else  {
+                    textViewWeight.setText(editTextWeight.getText().toString());
+                }
+                //*else if(TextUtils.isEmpty((CharSequence) textViewWeight)) {
+                //                    Toast.makeText(getActivity(), "This field is empty", Toast.LENGTH_LONG).show();
+                //                    textViewWeight.setText("0.0");
+                //                }
+
                 SharedPreferences preferences = PreferenceManager
                         .getDefaultSharedPreferences(getActivity());
                 SharedPreferences.Editor editor = preferences.edit();
@@ -175,19 +182,18 @@ public class ProfileFragment extends Fragment {
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         final View customLayout = getLayoutInflater().inflate(R.layout.customlayout, null);
         builder.setView(customLayout);
-        builder.setTitle("CustomDialogWithName");
+        builder.setTitle(R.string.alertTextName);
 
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.posBtnOk, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
               EditText editText = customLayout.findViewById(R.id.ed_text);
-              Toast.makeText(getActivity(),editText.getText().toString(), Toast.LENGTH_LONG).show();
-              textName.setText(editText.getText().toString());
+              textViewName.setText(editText.getText().toString());
 
                 SharedPreferences preferences = PreferenceManager
                         .getDefaultSharedPreferences(getActivity());
                 SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("textName", String.valueOf(textName));
+                editor.putString("textName", String.valueOf(textViewName));
                 editor.commit();
             }
         });
@@ -199,19 +205,26 @@ public class ProfileFragment extends Fragment {
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         final View customAgeLayout = getLayoutInflater().inflate(R.layout.custom_age_layout, null);
         builder.setView(customAgeLayout);
-        builder.setTitle("CustomDialogWithAge");
+        builder.setTitle(R.string.alertTextAge);
 
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.posBtnOk, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
               EditText editTextAge = customAgeLayout.findViewById(R.id.ed_text_age);
-              Toast.makeText(getActivity(),editTextAge.getText().toString(), Toast.LENGTH_LONG).show();
-              textAge.setText(editTextAge.getText().toString());
-
+                Float age = Float.parseFloat(editTextAge.getText().toString());
+                if(age < 0) {
+                    Toast.makeText(getActivity(),R.string.toastCorectValue, Toast.LENGTH_LONG).show();
+                    textViewAge.setText("0");
+                } else if (age > 130) {
+                    Toast.makeText(getActivity(),R.string.toastCorectValue, Toast.LENGTH_LONG).show();
+                    textViewAge.setText("0");
+                } else {
+                    textViewAge.setText(editTextAge.getText().toString());
+                }
                 SharedPreferences preferences = PreferenceManager
                         .getDefaultSharedPreferences(getActivity());
                 SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("textAge", String.valueOf(textAge));
+                editor.putString("textAge", String.valueOf(textViewAge));
                 editor.commit();
             }
         });
@@ -221,7 +234,7 @@ public class ProfileFragment extends Fragment {
 
     public void CreateAlertDialogWithRadioButtonSex() {
        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("AlertDialogWithRadioButtonSex");
+        builder.setTitle(R.string.alertTextSex);
         final String[] items = {getString(R.string.sexMale), getString(R.string.female)};
         int checkItem = 0;
         builder.setSingleChoiceItems(items, checkItem, new DialogInterface.OnClickListener() {
@@ -230,7 +243,7 @@ public class ProfileFragment extends Fragment {
                 selection = items[item];
             }
         });
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.posBtnOk, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 textViewSex.setText(selection);
@@ -248,7 +261,7 @@ public class ProfileFragment extends Fragment {
 
     public void CreateAlertDialogWithRadioButtonBike() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("AlertDialogWithradioButtonBike");
+        builder.setTitle(R.string.alertTextBike);
         final String[] items = {getString(R.string.city_bicycle),getString(R.string.mountain_bike),getString(R.string.road_bike)};
         final int checkItem = 0;
         builder.setSingleChoiceItems(items, checkItem, new DialogInterface.OnClickListener() {
@@ -258,7 +271,7 @@ public class ProfileFragment extends Fragment {
 
             }
         });
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.posBtnOk, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
              textViewBicycle.setText(selection1);
@@ -269,8 +282,8 @@ public class ProfileFragment extends Fragment {
                 editor.commit();
             }
         });
-        getAlertDialogWithRadioButtonBike = builder.create();
-        getAlertDialogWithRadioButtonBike.setCanceledOnTouchOutside(false);
-        getAlertDialogWithRadioButtonBike.show();
+        alertDialogWithRadioButtonBike = builder.create();
+        alertDialogWithRadioButtonBike.setCanceledOnTouchOutside(false);
+        alertDialogWithRadioButtonBike.show();
     }
 }

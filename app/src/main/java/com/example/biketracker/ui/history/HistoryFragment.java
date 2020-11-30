@@ -5,13 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.example.biketracker.R;
 
@@ -29,7 +25,6 @@ public class HistoryFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
         View fragmentHistory = inflater.inflate(R.layout.fragment_history, container, false);
 
         expandableListView = fragmentHistory.findViewById(R.id.expandableListView);
@@ -53,10 +48,9 @@ public class HistoryFragment extends Fragment {
             }
         });
 
-
-
         return fragmentHistory;
     }
+
     private void initListData() {
         listGroup.add(getString(R.string.group2));
         listGroup.add(getString(R.string.group3));
@@ -90,11 +84,11 @@ public class HistoryFragment extends Fragment {
         for (String item : array) {
             list6.add(item);
         }
-        listItem.put(listGroup.get(0),list2);
-        listItem.put(listGroup.get(1),list3);
-        listItem.put(listGroup.get(2),list4);
-        listItem.put(listGroup.get(3),list5);
-        listItem.put(listGroup.get(4),list6);
+        listItem.put(listGroup.get(0), list2);
+        listItem.put(listGroup.get(1), list3);
+        listItem.put(listGroup.get(2), list4);
+        listItem.put(listGroup.get(3), list5);
+        listItem.put(listGroup.get(4), list6);
         adapter.notifyDataSetChanged();
     }
 }

@@ -41,17 +41,17 @@ import java.util.List;
 
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
+    private static final int LOCATION_REQUEST = 500;
+
     private View fragmentMap;
     private GoogleMap map;
     private MapView mapView;
     private ArrayList<LatLng> listPoints;
 
-    private static final int LOCATION_REQUEST = 500;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         fragmentMap = inflater.inflate(R.layout.fragment_map, container, false);
-
         listPoints = new ArrayList<>();
         return fragmentMap;
     }
