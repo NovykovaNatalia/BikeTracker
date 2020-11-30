@@ -23,6 +23,8 @@ import android.widget.Toast;
 
 import com.example.biketracker.R;
 
+import org.w3c.dom.Text;
+
 public class ProfileFragment extends Fragment {
     private LinearLayout linerLayoutSex;
     private LinearLayout linerLayoutWeight;
@@ -119,12 +121,16 @@ public class ProfileFragment extends Fragment {
         builder.setPositiveButton(R.string.posBtnOk, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                    EditText editTextHeight = customHeightLayout.findViewById(R.id.ed_text_height);
-                    float height = Float.parseFloat(editTextHeight.getText().toString());
-                    if(height < 50) {
+                EditText editTextHeight = customHeightLayout.findViewById(R.id.ed_text_height);
+                    float height;
+                     if(TextUtils.isEmpty(editTextHeight.getText())){
+                         height = 0;
+                     } else {
+                         height = Float.parseFloat(editTextHeight.getText().toString());
+                     } if(height <= 50) {
                         Toast.makeText(getActivity(), R.string.toastCorectValue, Toast.LENGTH_LONG).show();
                         textViewHeight.setText("0");
-                    } else if (height > 300) {
+                    } else if (height >= 300) {
                         Toast.makeText(getActivity(),R.string.toastCorectValue, Toast.LENGTH_LONG).show();
                         textViewHeight.setText("0");
                     } else {
@@ -152,20 +158,20 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 EditText editTextWeight = customWeightLayout.findViewById(R.id.ed_text_weight);
-                float weight = Float.parseFloat(editTextWeight.getText().toString());
-                if(weight < 0.0) {
+                float weight;
+                if(TextUtils.isEmpty(editTextWeight.getText())) {
+                    weight = (float) 0.0;
+                } else {
+                    weight = Float.parseFloat(editTextWeight.getText().toString());
+                } if(weight <= 0.0) {
                     Toast.makeText(getActivity(),R.string.toastCorectValue, Toast.LENGTH_LONG).show();
                     textViewWeight.setText("0.0");
-                } else if (weight > 700.0) {
+                } else if (weight >= 700.0) {
                     Toast.makeText(getActivity(),R.string.toastCorectValue, Toast.LENGTH_LONG).show();
                     textViewWeight.setText("0.0");
                 }  else  {
                     textViewWeight.setText(editTextWeight.getText().toString());
                 }
-                //*else if(TextUtils.isEmpty((CharSequence) textViewWeight)) {
-                //                    Toast.makeText(getActivity(), "This field is empty", Toast.LENGTH_LONG).show();
-                //                    textViewWeight.setText("0.0");
-                //                }
 
                 SharedPreferences preferences = PreferenceManager
                         .getDefaultSharedPreferences(getActivity());
@@ -211,11 +217,15 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
               EditText editTextAge = customAgeLayout.findViewById(R.id.ed_text_age);
-                Float age = Float.parseFloat(editTextAge.getText().toString());
-                if(age < 0) {
+                float age;
+                if(TextUtils.isEmpty(editTextAge.getText())) {
+                    age = 0;
+                } else {
+                   age = Float.parseFloat(editTextAge.getText().toString());
+                } if(age <= 0) {
                     Toast.makeText(getActivity(),R.string.toastCorectValue, Toast.LENGTH_LONG).show();
                     textViewAge.setText("0");
-                } else if (age > 130) {
+                } else if (age >= 130) {
                     Toast.makeText(getActivity(),R.string.toastCorectValue, Toast.LENGTH_LONG).show();
                     textViewAge.setText("0");
                 } else {
@@ -236,7 +246,7 @@ public class ProfileFragment extends Fragment {
        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.alertTextSex);
         final String[] items = {getString(R.string.sexMale), getString(R.string.female)};
-        int checkItem = 0;
+        final int checkItem = 0;
         builder.setSingleChoiceItems(items, checkItem, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int item) {
@@ -268,7 +278,6 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialogInterface, int item) {
               selection1 = items[item];
-
             }
         });
         builder.setPositiveButton(R.string.posBtnOk, new DialogInterface.OnClickListener() {
