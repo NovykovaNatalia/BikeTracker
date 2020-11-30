@@ -22,6 +22,7 @@ import androidx.appcompat.widget.Toolbar;
 public class NavigationDrawerActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout drawerLayout;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,7 @@ public class NavigationDrawerActivity extends AppCompatActivity {
                 .setOpenableLayout(drawerLayout)
                 .build();
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
@@ -95,13 +96,12 @@ public class NavigationDrawerActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_profile:
-                Toast.makeText(this, "nav_profile", Toast.LENGTH_LONG).show();
+                navController.navigate(R.id.nav_profile);
                 return true;
             case R.id.nav_settings:
-                Toast.makeText(this, "nav_settings", Toast.LENGTH_LONG).show();
+                navController.navigate(R.id.nav_settings);
                 return true;
             case R.id.nav_share:
-                Toast.makeText(this, "nav_share", Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
