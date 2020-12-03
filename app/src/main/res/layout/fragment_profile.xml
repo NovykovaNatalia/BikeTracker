@@ -32,8 +32,8 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/colorAccent"
+        android:layout_height="2px"
+        android:background="#aaa"
         android:padding="15dp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,8 +58,8 @@
     </LinearLayout>
     <View
         android:layout_width="wrap_content"
-        android:layout_height="1px"
-        android:background="@color/colorAccent"/>
+        android:layout_height="2px"
+        android:background="#aaa"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -83,8 +83,8 @@
     </LinearLayout>
     <View
         android:layout_width="wrap_content"
-        android:layout_height="1px"
-        android:background="@color/colorAccent"/>
+        android:layout_height="2px"
+        android:background="#aaa"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -108,8 +108,8 @@
     </LinearLayout>
     <View
         android:layout_width="wrap_content"
-        android:layout_height="1px"
-        android:background="@color/colorAccent"/>
+        android:layout_height="2px"
+        android:background="#aaa"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -134,8 +134,8 @@
     </LinearLayout>
     <View
         android:layout_width="wrap_content"
-        android:layout_height="1px"
-        android:background="@color/colorAccent"/>
+        android:layout_height="2px"
+        android:background="#aaa"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -161,7 +161,7 @@
     </LinearLayout>
     <View
         android:layout_width="wrap_content"
-        android:layout_height="1px"
-        android:background="@color/colorAccent"/>
+        android:layout_height="2px"
+        android:background="#aaa"/>
 
 </LinearLayout>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#E1C340</color>
-    <color name="colorPrimaryDark">#0C6980</color>
+    <color name="colorPrimary">#f8f7de</color>
+    <color name="colorPrimaryDark">#E1C340</color>
     <color name="colorAccent">#F8EA8C</color>
 
-    <color name="colorPrimaryNight">#0C6980</color>
-    <color name="colorPrimaryDarkNight">#4C5270</color>
+    <color name="colorPrimaryNight">#393e46</color>
+    <color name="colorPrimaryDarkNight">#000000</color>
     <color name="colorAccentNight">#F8EA8C</color>
 
-    <color name="colorPrimaryTitleColor">#A4E8E0</color>
-    <color name="colorPrimaryTitleColorNight">#ffffff</color>
+    <color name="colorPrimaryTitleColor">#000000</color>
+    <color name="colorPrimaryTitleColorNight">#000000</color>
 </resources>
