@@ -4,10 +4,11 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:orientation="vertical">
+
     <EditText
+        android:id="@+id/ed_text_height"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ed_text_height"
-        android:inputType="numberDecimal"
-        android:hint="@string/enter_your_height_here"/>
+        android:hint="@string/enter_your_height_here"
+        android:inputType="numberDecimal" />
 </LinearLayout>

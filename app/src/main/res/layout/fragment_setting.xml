@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -11,7 +10,8 @@
             android:id="@+id/modeLinerLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="50dp"
+            android:padding="30dp"
+            android:background="?attr/colorPrimary"
             android:orientation="vertical">
 
             <TextView
@@ -40,7 +40,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="50dp">
+        android:background="?attr/colorPrimary"
+        android:padding="30dp">
 
         <TextView
             android:id="@+id/textLanguage"
@@ -54,7 +55,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:entries="@array/language_option"/>
+            android:entries="@array/language_option"
+            />
 
     </LinearLayout>
     </androidx.cardview.widget.CardView>
