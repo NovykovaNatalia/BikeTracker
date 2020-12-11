@@ -11,20 +11,20 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
+        android:layout_marginTop="110dp"
+        android:fontFamily="@font/aclonica"
+        android:padding="55dp"
         android:text="Bike Tracker"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/colorPrimaryNight"
-        android:textSize="40sp"
-        android:layout_marginTop="60dp"
-        android:padding="65dp"
+        android:textColor="@color/colorPrimaryTitleColorNight"
+        android:textSize="36sp"
         android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageBike"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:layout_gravity="center"
         android:src="@drawable/bikedet" />
 
