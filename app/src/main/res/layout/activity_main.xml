@@ -8,23 +8,24 @@
     android:id="@+id/layout"
     tools:context=".MainActivity">
 
-    <TextView
+    <com.bitvale.lightprogress.LightProgress
+        android:id="@+id/lightTextBike"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
-        android:fontFamily="@font/aclonica"
-        android:padding="55dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="100dp"
+        android:layout_marginTop="40dp"
         android:text="Bike Tracker"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/colorPrimaryTitleColorNight"
-        android:textSize="36sp"
+        android:textSize="40dp"
         android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageBike"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center"
         android:src="@drawable/bikedet" />
 

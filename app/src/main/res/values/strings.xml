@@ -80,6 +80,7 @@
     <string name="enter_your_height_here">Enter your height here</string>
     <string name="enter_your_weight_here">Enter your weight here</string>
     <string name="enter_your_name_here">Enter your name here</string>
+    <string name="light_text">Loading</string>
 
 
     <string-array name="group2">
