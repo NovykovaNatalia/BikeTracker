@@ -27,13 +27,11 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference myRef;
     ImageView imageBike;
     FrameLayout frameLayout;
-    LightProgress light;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ctx = this;
-        light = findViewById(R.id.lightTextBike);
         imageBike = findViewById(R.id.imageBike);
         imageBike.animate().rotation(360).setDuration(3000);
         database = FirebaseDatabase.getInstance();
@@ -44,11 +42,6 @@ public class MainActivity extends AppCompatActivity {
         animationDrawable.setEnterFadeDuration(2000);
         animationDrawable.setExitFadeDuration(4000);
         animationDrawable.start();
-        if (!light.isOn()) {
-            light.on();
-        } else {
-            light.off();
-        }
         
 
 //        SharedPreferences sharedPreferences = getSharedPreferences("night", 0);

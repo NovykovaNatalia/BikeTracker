@@ -66,7 +66,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             ActivityCompat.requestPermissions((Activity) getContext(), new String[] {Manifest.permission.ACCESS_FINE_LOCATION},LOCATION_REQUEST);
             return;
         }
-        map.setMyLocationEnabled(true);
+//        map.setMyLocationEnabled(true);
         map.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
             public void onMapLongClick(LatLng latLng) {

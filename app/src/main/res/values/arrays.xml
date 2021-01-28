@@ -7,4 +7,14 @@
         <item>Tracker</item>
     </string-array>
 
+<string-array name="array_gender">
+    <item>Unknown</item>
+    <item>Male</item>
+    <item>Female</item>
+</string-array>
+    <string-array name="array_bike">
+        <item>City Bike</item>
+        <item>Mountain Bike</item>
+        <item>Sport Bike</item>
+    </string-array>
 </resources>
