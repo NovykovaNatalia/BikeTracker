@@ -6,169 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:layout_marginHorizontal="15dp"
     android:orientation="vertical">
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/linerName"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:padding="35dp">-->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/name"-->
-<!--            android:textSize="20sp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:textStyle="bold" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/textViewName"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="0"-->
-<!--            android:layout_weight="2"-->
-<!--            android:textSize="20sp" />-->
-<!--    </LinearLayout>-->
-
-<!--    <View-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="2px"-->
-<!--        android:background="#aaa"-->
-<!--        android:padding="15dp"/>-->
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:padding="35dp"-->
-<!--        android:id="@+id/linerAge">-->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textSize="20sp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:layout_weight="1"-->
-<!--            android:text="@string/age"/>-->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textSize="20sp"-->
-<!--            android:layout_weight="2"-->
-<!--            android:id="@+id/textViewAge"-->
-<!--            android:text="0"/>-->
-<!--    </LinearLayout>-->
-<!--    <View-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="2px"-->
-<!--        android:background="#aaa"/>-->
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:padding="35dp"-->
-<!--        android:id="@+id/liner">-->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/sex"-->
-<!--            android:layout_weight="1"-->
-<!--            android:textSize="20sp"-->
-<!--            android:textStyle="bold"/>-->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textSize="20sp"-->
-<!--            android:layout_weight="2"-->
-<!--            android:id="@+id/textViewSex"-->
-<!--            android:text="@string/male"/>-->
-<!--    </LinearLayout>-->
-<!--    <View-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="2px"-->
-<!--        android:background="#aaa"/>-->
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:padding="35dp"-->
-<!--        android:id="@+id/linerWeight">-->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textSize="20sp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:layout_weight="1"-->
-<!--            android:text="@string/weight"/>-->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="2"-->
-<!--            android:textSize="20sp"-->
-<!--            android:id="@+id/textViewWeight"-->
-<!--            android:text="0,0"/>-->
-<!--    </LinearLayout>-->
-<!--    <View-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="2px"-->
-<!--        android:background="#aaa"/>-->
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:padding="35dp"-->
-<!--        android:id="@+id/linerHeight">-->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textSize="20sp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:textStyle="bold"-->
-<!--            android:text="@string/height"/>-->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textSize="20sp"-->
-<!--            android:layout_weight="2"-->
-<!--            android:id="@+id/textViewHeight"-->
-<!--            android:text="0"/>-->
-
-<!--    </LinearLayout>-->
-<!--    <View-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="2px"-->
-<!--        android:background="#aaa"/>-->
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:padding="35dp"-->
-<!--        android:id="@+id/linerBike">-->
-
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/bike"-->
-<!--            android:layout_weight="1"-->
-<!--            android:textSize="20sp"-->
-<!--            android:textStyle="bold"/>-->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textSize="20sp"-->
-<!--            android:layout_weight="2"-->
-<!--            android:id="@+id/textViewBike"-->
-<!--            android:text="@string/city_bicycle"/>-->
-<!--    </LinearLayout>-->
-<!--    <View-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="2px"-->
-<!--        android:background="#aaa"/>-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="3"
+        android:layout_marginBottom="20dp">
 
         <TextView
             android:text="First Name"
@@ -181,6 +27,7 @@
             android:hint="First Name"
             android:layout_weight="2"
             android:layout_width="0dp"
+            android:inputType="textAutoComplete"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
@@ -189,7 +36,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="3"
+        android:layout_marginBottom="20dp">
 
         <TextView
             android:text="Age"
@@ -202,6 +50,7 @@
             android:hint="Age"
             android:layout_weight="2"
             android:layout_width="0dp"
+            android:inputType="number"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
@@ -212,7 +61,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="3"
+        android:layout_marginBottom="20dp">
 
         <TextView
             android:text="Gender"
@@ -232,7 +82,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="3"
+        android:layout_marginBottom="20dp">
 
         <TextView
             android:text="Weight"
@@ -245,6 +96,7 @@
             android:hint="Weight"
             android:layout_weight="2"
             android:layout_width="0dp"
+            android:inputType="number"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
@@ -252,7 +104,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="3"
+        android:layout_marginBottom="20dp">
 
         <TextView
             android:text="Height"
@@ -265,6 +118,7 @@
             android:hint="Height"
             android:layout_weight="2"
             android:layout_width="0dp"
+            android:inputType="number"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
@@ -272,7 +126,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="3"
+        android:layout_marginBottom="20dp">
 
         <TextView
             android:text="Bike"

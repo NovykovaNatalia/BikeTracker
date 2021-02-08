@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.InputFilter;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,6 +48,10 @@ public class ProfileFragment extends Fragment {
         heightEditText = fragmentProfil.findViewById(R.id.heightEditText);
         bikeSpinner = fragmentProfil.findViewById(R.id.bikeSpinner);
 
+
+        ageEditText.setFilters(new InputFilter[] {new InputFilterMinMax(0, 122)});
+        weightEditText.setFilters(new InputFilter[]{new InputFilterMinMax(0, 595)});
+        heightEditText.setFilters(new InputFilter[] {new InputFilterMinMax(0, 300)});
 
         spinnerAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.array_gender, android.R.layout.simple_spinner_item);
